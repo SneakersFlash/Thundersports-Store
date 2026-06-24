@@ -45,22 +45,22 @@ export default async function HomePage() {
     const foundCategory = (apiCategories as any[]).find(
       (c) => c.name.toLowerCase() === categoryName.toLowerCase()
     );
-    return foundCategory?.imageUrl || "/placeholder.jpg";
+    return foundCategory?.imageUrl || null;
   };
-  
+
   const firstGroup = [
     {
       id: "entry-level",
       title: "Entry-Level",
-      filters: { tag: "entry-level", limit: 8 },
-      href: "/products?tag=entry-level",
+      filters: { tag: "entry level", limit: 8 },
+      href: "/products?tag=entry+level",
       bgImage: getCategoryImage("Footwear")
     },
     {
-      id: "middle-level",
-      title: "Middle-Level",
-      filters: { tag: "middle-level", limit: 8 },
-      href: "/products?tag=middle-level",
+      id: "mid-level",
+      title: "Mid-Level",
+      filters: { tag: "mid level", limit: 8 },
+      href: "/products?tag=mid+level",
       bgImage: getCategoryImage("Lifestyle/Casual")
     }
   ];
@@ -68,9 +68,9 @@ export default async function HomePage() {
   const restGroup = [
     {
       id: "elite-level",
-      title: "Elite-Level",
-      filters: { tag: "elite-level", limit: 8 },
-      href: "/products?tag=elite-level",
+      title: "Elite / Racing",
+      filters: { tag: "elite / racing", limit: 8 },
+      href: "/products?tag=elite+%2F+racing",
       bgImage: getCategoryImage("Womens")
     },
   ];  
