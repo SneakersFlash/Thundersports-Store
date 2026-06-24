@@ -29,6 +29,9 @@ export const productsService = {
         // ── Gender (Navbar) ────────────────────────────────────────────────────
         ...(filters.gender && { gender: filters.gender }),
 
+        // ── Tag ────────────────────────────────────────────────────────────────
+        ...(filters.tag && { tag: filters.tag }),
+
         // ── Sort ───────────────────────────────────────────────────────────────
         ...(filters.priceSort && { priceSort: filters.priceSort }),
         ...(filters.sortBy    && { sortBy:    filters.sortBy    }),

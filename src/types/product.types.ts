@@ -73,6 +73,7 @@ export interface Product {
   activeEvent: ActiveEvent | null;
   wishlists: any[];
   availableSizes?: string[];
+  tags?: string[];
   totalStock?: number;
   ratingAvg?: number;
   reviewCount?: number;
@@ -136,6 +137,9 @@ export interface ProductFilters {
 
   // ── Gender (Navbar only) ────────────────────────────────────────────────────
   gender?: string;
+
+  // ── Tag (single, cocok dengan product.tags[] di BE via ?tag=) ──────────────
+  tag?: string;
 
   // ── Sort ────────────────────────────────────────────────────────────────────
   // Dari FilterModal

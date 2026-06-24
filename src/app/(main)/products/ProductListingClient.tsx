@@ -41,6 +41,7 @@ function ProductListingClientInner({
   const priceSortFromUrl   = searchParams.get("priceSort");     // dari FilterModal
   const sortFromUrl        = searchParams.get("sort");          // dari Navbar (?sort=newest)
   const genderFromUrl      = searchParams.get("gender");        // dari Navbar (?gender=men)
+  const tagFromUrl         = searchParams.get("tag");           // dari home sections (?tag=entry-level)
   const pageFromUrl        = Number(searchParams.get("page")) || 1;
 
   // ── Bangun ProductFilters dari URL → dikirim ke useProducts ───────────────
@@ -68,6 +69,9 @@ function ProductListingClientInner({
 
   // Gender (dari Navbar)
   if (genderFromUrl) currentFilters.gender = genderFromUrl;
+
+  // Tag (dari home sections)
+  if (tagFromUrl) currentFilters.tag = tagFromUrl;
 
   // Price sort:
   //   FilterModal → ?priceSort=high-to-low | low-to-high (langsung)

@@ -147,6 +147,20 @@ export function ProductCard({ product, priority = false, index = 0 }: ProductCar
             {product.name.toUpperCase()}
           </p>
           
+          {/* Tags */}
+          {product.tags && product.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-1">
+              {product.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-semibold uppercase tracking-wide bg-blue-50 text-blue-600 border border-blue-100"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
           {/* Penambahan Available Sizes */}
           {product.availableSizes && product.availableSizes.length > 0 && (
             <p className="text-[10px] sm:text-[11px] text-[#888888] mb-1.5 sm:mb-2 line-clamp-1">

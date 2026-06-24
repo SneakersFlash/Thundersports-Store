@@ -52,15 +52,15 @@ export default async function HomePage() {
     {
       id: "entry-level",
       title: "Entry-Level",
-      filters: { category: "Footwear", limit: 8 },
-      href: "/products?category=footwear" ,
+      filters: { tag: "entry-level", limit: 8 },
+      href: "/products?tag=entry-level",
       bgImage: getCategoryImage("Footwear")
     },
     {
       id: "middle-level",
       title: "Middle-Level",
-      filters: { category: "Lifestyle/Casual", limit: 8, page: 2 },
-      href: "/products?category=lifestyle-casual",
+      filters: { tag: "middle-level", limit: 8 },
+      href: "/products?tag=middle-level",
       bgImage: getCategoryImage("Lifestyle/Casual")
     }
   ];
@@ -69,8 +69,8 @@ export default async function HomePage() {
     {
       id: "elite-level",
       title: "Elite-Level",
-      filters: { category: 'Womens', limit: 8 },
-      href: "/products?category=womens",
+      filters: { tag: "elite-level", limit: 8 },
+      href: "/products?tag=elite-level",
       bgImage: getCategoryImage("Womens")
     },
   ];  
