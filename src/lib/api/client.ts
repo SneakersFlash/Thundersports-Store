@@ -26,6 +26,7 @@ const apiClient: AxiosInstance = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
     "X-Platform": "TS",
+    "ngrok-skip-browser-warning": "true",
   },
 });
 
