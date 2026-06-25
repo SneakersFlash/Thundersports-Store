@@ -89,10 +89,10 @@ export function HeroBanner({ banners }: HeroBannerProps) {
               {/* GAMBAR MOBILE (Ditampilkan jika lebar layar < 640px) */}
               <div className="block sm:hidden absolute inset-0">
                 <Image
-                  src={currentBanner.imageMobileUrl.startsWith("http") ? currentBanner.imageMobileUrl : buildImageUrl(currentBanner.imageMobileUrl)}
+                  src={(() => { const u = currentBanner.imageMobileUrl || currentBanner.imageDesktopUrl; return u?.startsWith("http") ? u : buildImageUrl(u); })()}
                   alt={currentBanner.title}
                   fill
-                  className="object-cover object-center" 
+                  className="object-cover object-center"
                   priority={imageIndex === 0}
                 />
               </div>
@@ -100,7 +100,7 @@ export function HeroBanner({ banners }: HeroBannerProps) {
               {/* GAMBAR DESKTOP (Ditampilkan jika lebar layar >= 640px) */}
               <div className="hidden sm:block absolute inset-0">
                 <Image
-                  src={currentBanner.imageDesktopUrl.startsWith("http") ? currentBanner.imageDesktopUrl : buildImageUrl(currentBanner.imageDesktopUrl)}
+                  src={currentBanner.imageDesktopUrl?.startsWith("http") ? currentBanner.imageDesktopUrl : buildImageUrl(currentBanner.imageDesktopUrl)}
                   alt={currentBanner.title}
                   fill
                   className="object-cover object-center"
