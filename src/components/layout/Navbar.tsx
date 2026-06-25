@@ -441,7 +441,7 @@ function NavbarInner() {
         )}
       >
         {/* Announcement bar */}
-        <div className="announcement-bar text-white">
+        <div className="text-[9px] font-bold bg-primary text-white px-1.5 py-px uppercase">
           FREE SHIPPING ON ORDERS RP 50.000 NEW DROPS EVERY FRIDAY
         </div>
 
