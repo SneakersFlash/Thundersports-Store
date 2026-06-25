@@ -33,7 +33,7 @@ function SectionBannerHeader({
     <Link href={viewAllHref} className="block group mb-4">
       <div
         className="relative h-20 md:h-28 flex items-center px-5 md:px-8 overflow-hidden rounded-2xl shadow-xs transition-transform duration-300 group-hover:scale-[1.01]"
-        style={{ backgroundColor: bgColor }}
+        // style={{ backgroundColor: bgColor }}
       >
         {backgroundImage ? (
           <Image

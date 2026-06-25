@@ -108,7 +108,7 @@ export default async function HomePage() {
                 title={section.title}
                 filters={section.filters}
                 viewAllHref={section.href}
-                backgroundImage={section.bgImage}
+                backgroundImage={'/images/Banner Website_Section Bar.jpg.jpeg'}
               />
             ))}
             {restGroup.map((section, index) => {
@@ -120,7 +120,7 @@ export default async function HomePage() {
                   filters={section.filters}
                   bgColor={bgColor}
                   viewAllHref={section.href}
-                  backgroundImage={section.bgImage}
+                  backgroundImage={'/images/Banner Website_Section Bar.jpg.jpeg'}
                 />
               );
             })}
