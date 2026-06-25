@@ -47,7 +47,7 @@ function SectionBannerHeader({
           <div className="absolute inset-0 opacity-10 bg-black [background-size:16px_16px]" />
         )}
         
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0" />
 
         <div className="relative z-10 flex items-center justify-between w-full">
           <div className="flex flex-col">
