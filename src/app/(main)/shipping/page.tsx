@@ -96,7 +96,6 @@ const content = {
       "Orders are processed on business days from 08.00–15.00 WIB.",
       "Orders placed after 15.00 WIB will be processed the next business day.",
       "Delivery time excludes weekends and public holidays.",
-      "Free shipping available for orders above Rp 500.000 (Regular shipping only).",
     ],
     returnTitle: "Return Policy",
     returnSubtitle:
@@ -244,16 +243,7 @@ export default function ShippingReturnsPage() {
               {t.infoItems.map((item, i) => (
                 <li key={i}>
                   {"• "}
-                  {i === 3 ? (
-                    <>
-                      <strong className="text-black">
-                        {lang === "id" ? "Gratis ongkir" : "Free shipping"}
-                      </strong>{" "}
-                      {lang === "id"
-                        ? "untuk pembelian di atas Rp 500.000 (berlaku untuk Regular)."
-                        : "available for orders above Rp 500.000 (Regular shipping only)."}
-                    </>
-                  ) : (
+                  {(
                     item
                   )}
                 </li>

@@ -441,8 +441,8 @@ function NavbarInner() {
         )}
       >
         {/* Announcement bar */}
-        <div className="announcement-bar">
-          FREE SHIPPING ON ORDERS RP 50.000 &nbsp;⚡&nbsp; NEW DROPS EVERY FRIDAY
+        <div className="announcement-bar text-white">
+          FREE SHIPPING ON ORDERS RP 50.000 NEW DROPS EVERY FRIDAY
         </div>
 
         {/* Main nav row */}
@@ -480,7 +480,7 @@ function NavbarInner() {
                   >
                     {item.label}
                     {(item as { isHot?: boolean }).isHot && (
-                      <span className="text-[9px] font-bold bg-primary text-primary-foreground px-1.5 py-px uppercase tracking-wider ml-1">
+                      <span className="text-[9px] font-bold bg-primary text-white px-1.5 py-px uppercase tracking-wider ml-1">
                         New
                       </span>
                     )}
