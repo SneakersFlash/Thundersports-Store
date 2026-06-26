@@ -1,26 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Oswald, Barlow, Archivo } from "next/font/google";
+import { Archivo } from "next/font/google";
 import Script from "next/script";
 import { Providers } from "@/components/common/Providers";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 import "./globals.css";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
-  display: "swap",
-});
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-barlow",
-  display: "swap",
-});
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -79,7 +64,7 @@ export default function RootLayout({
     <html
       lang="id"
       suppressHydrationWarning
-      className={`${archivo.variable} ${oswald.variable} ${barlow.variable}`}
+      className={archivo.variable}
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
 

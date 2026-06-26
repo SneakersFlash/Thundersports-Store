@@ -205,7 +205,7 @@ export function FilterModal({
               <div className="mt-8">
                 <h3
                   className="text-sm font-black uppercase tracking-wider text-zinc-900 mb-4"
-                  style={{ fontFamily: "var(--font-oswald), sans-serif" }}
+
                 >
                   Categories
                 </h3>
@@ -237,7 +237,7 @@ export function FilterModal({
               <div className="mt-8">
                 <h3
                   className="text-sm font-black uppercase tracking-wider text-zinc-900 mb-4"
-                  style={{ fontFamily: "var(--font-oswald), sans-serif" }}
+
                 >
                   Price
                 </h3>
@@ -259,7 +259,7 @@ export function FilterModal({
               <div className="mt-8">
                 <h3
                   className="text-sm font-black uppercase tracking-wider text-zinc-900 mb-4"
-                  style={{ fontFamily: "var(--font-oswald), sans-serif" }}
+
                 >
                   Brand
                 </h3>

@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-archivo)", "sans-serif"],
-        body: ["var(--font-barlow)", "sans-serif"],
-        display: ["var(--font-oswald)", "sans-serif"],
+        sans:    ["var(--font-archivo)", "sans-serif"],
+        body:    ["var(--font-archivo)", "sans-serif"],
+        display: ["var(--font-archivo)", "sans-serif"],
       },
       colors: {
         // ── Semantic tokens (respect dark/light via CSS vars) ──────────────────
