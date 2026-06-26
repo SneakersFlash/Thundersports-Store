@@ -15,10 +15,9 @@ export function EventCampaignSection({ campaigns }: EventCampaignSectionProps) {
   return (
     <div className="flex flex-col gap-10 mb-4">
       {campaigns.map((campaign: any) => (
-        <section 
-          key={campaign.id} 
-          // 1. Hapus class 'group' dari section ini agar tidak mengganggu hover produk
-          className="relative w-full rounded-[20px] md:rounded-[24px] overflow-hidden shadow-lg"
+        <section
+          key={campaign.id}
+          className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-lg"
           style={{ backgroundColor: campaign.styleConfig?.backgroundColor || "#1A1A1A" }}
         >
           
@@ -59,9 +58,8 @@ export function EventCampaignSection({ campaigns }: EventCampaignSectionProps) {
                   </div>
                 )}
                 
-                <Link 
-                  href={`/events/${campaign.slug}`} 
-                  // Tambahkan shrink-0 dan ml-auto di bawah ini
+                <Link
+                  href={`/events/${campaign.slug}`}
                   className="flex items-center justify-center shrink-0 ml-auto w-10 h-10 md:w-11 md:h-11 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl text-white hover:bg-white hover:text-black transition-all duration-300"
                 >
                   <ChevronRight size={20} strokeWidth={3} />
@@ -80,15 +78,13 @@ export function EventCampaignSection({ campaigns }: EventCampaignSectionProps) {
                 return (
                   <div key={p.productVariantId} className="snap-start shrink-0">
                     <Link href={`/products/${p.slug}`}>
-                      {/* 2. Tambahkan nama spesifik pada group: group/card */}
                       <div className="w-[155px] lg:w-[220px] bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all hover:-translate-y-1 group/card flex flex-col h-full border border-transparent">
-                        
-                        <div className="relative aspect-square w-full bg-[#F5F5F5]">
-                          
-                          {/* BADGE DISKON MELAYANG */}
+
+                        <div className="relative aspect-square w-full bg-gray-100">
+
                           {p.discountPercent > 0 && (
                             <div className="absolute top-2 left-2 z-20">
-                              <span className="bg-[#E50000] text-white text-[10px] lg:text-[11px] font-black px-2 py-1 rounded shadow-sm">
+                              <span className="bg-red-600 text-white text-xs font-black px-2 py-1 rounded shadow-sm">
                                 -{p.discountPercent}%
                               </span>
                             </div>
@@ -96,23 +92,22 @@ export function EventCampaignSection({ campaigns }: EventCampaignSectionProps) {
 
                           {p.images && p.images.length > 0 ? (
                             <>
-                              {/* 3. Ubah group-hover menjadi group-hover/card */}
-                              <Image 
-                                src={p.images[0]} 
-                                alt={p.name} 
-                                fill 
+                              <Image
+                                src={p.images[0]}
+                                alt={p.name}
+                                fill
                                 className={`object-cover object-top transition-all duration-700 ${
                                   p.images.length > 1 ? "group-hover/card:opacity-0" : "group-hover/card:scale-105"
-                                }`} 
-                                sizes="(max-width: 768px) 50vw, 25vw" 
+                                }`}
+                                sizes="(max-width: 768px) 50vw, 25vw"
                               />
                               {p.images.length > 1 && (
-                                <Image 
-                                  src={p.images[1]} 
-                                  alt={`${p.name} hover`} 
-                                  fill 
-                                  className="object-cover object-top absolute inset-0 opacity-0 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-700" 
-                                  sizes="(max-width: 768px) 50vw, 25vw" 
+                                <Image
+                                  src={p.images[1]}
+                                  alt={`${p.name} hover`}
+                                  fill
+                                  className="object-cover object-top absolute inset-0 opacity-0 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-700"
+                                  sizes="(max-width: 768px) 50vw, 25vw"
                                 />
                               )}
                             </>
@@ -139,25 +134,25 @@ export function EventCampaignSection({ campaigns }: EventCampaignSectionProps) {
 
                         {/* Info Produk */}
                         <div className="space-y-1 p-2.5 flex-grow bg-white">
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-[#E50000]">
+                          <p className="text-xs font-bold uppercase tracking-widest text-red-600">
                             {p.isSoldOut ? "Sold Out" : "Event Promo"}
                           </p>
-                          <p className="text-[12px] font-medium text-gray-900 line-clamp-2">
+                          <p className="text-sm font-medium text-gray-900 line-clamp-2">
                             {p.name}
                           </p>
                           {p.availableSizes && p.availableSizes.length > 0 && (
-                            <p className="text-[10px] lg:text-[11px] text-[#888888] mb-2 lg:mb-3 line-clamp-1">
+                            <p className="text-xs text-gray-500 mb-2 lg:mb-3 line-clamp-1">
                               Sizes: {p.availableSizes.slice(0, 5).join(", ")}
                               {p.availableSizes.length > 5 && "..."}
                             </p>
                           )}
-                          <p className="font-bold text-[14px] lg:text-[18px]">
+                          <p className="font-bold text-sm lg:text-lg">
                             Rp {p.finalPrice?.toLocaleString('id-ID')}
                           </p>
-                          
+
                           <div className="flex items-center gap-1.5 mb-1.5">
                             {p.originalPrice > p.finalPrice && (
-                              <p className="text-[10px] line-through text-gray-400">
+                              <p className="text-xs line-through text-gray-400">
                                 Rp {p.originalPrice?.toLocaleString('id-ID')}
                               </p>
                             )}

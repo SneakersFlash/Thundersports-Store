@@ -123,15 +123,15 @@ export default function VoucherClaimSection() {
     : vouchers;
 
   return (
-    <section className="w-full bg-[#F5F5F5] pb-4 pt-2 md:py-6" ref={containerRef}>
-      <div className="container px-1 max-w-7xl">
+    <section className="w-full bg-gray-50 pb-4 pt-2 md:py-6" ref={containerRef}>
+      <div className="container px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex items-center justify-between mb-3 md:mb-4"
         >
-          <p className="text-[18px] md:text-[22px] font-black tracking-tight text-gray-900">
+          <p className="text-lg md:text-xl font-bold tracking-tight text-gray-900">
             Klaim Voucher Belanja
           </p>
         </motion.div>
@@ -199,12 +199,8 @@ export default function VoucherClaimSection() {
                         {voucher.maxDiscountAmount ? ` • S/d ${formatRp(voucher.maxDiscountAmount)}` : ""}
                       </p>
 
-                      {/* Blurred code teaser untuk mock, expired date untuk reguler */}
-                      {isMock ? (
-                        <>
-                        </>
-                      ) : (
-                        <p className="text-[9px] md:text-[10px] text-gray-400 mt-auto flex items-center gap-1">
+                      {!isMock && (
+                        <p className="text-[9px] md:text-xs text-gray-400 mt-auto flex items-center gap-1">
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
@@ -215,7 +211,7 @@ export default function VoucherClaimSection() {
 
                     {/* Right action */}
                     <div className="w-[80px] md:w-[90px] bg-white flex flex-col items-center justify-center px-2 z-10">
-                      <p className="text-[13px] md:text-[15px] font-black text-gray-900 mb-1.5">
+                      <p className="text-sm md:text-base font-bold text-gray-900 mb-1.5">
                         {formatRp(voucher.discountValue)}
                       </p>
                       <motion.button

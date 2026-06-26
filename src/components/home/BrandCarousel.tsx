@@ -124,25 +124,24 @@ export function BrandCarousel() {
   if (brands.length === 0) return null;
 
   return (
-    <div className="relative w-full py-4 font-sans">
+    <div className="relative w-full py-4">
       <div className="container mx-auto px-4 max-w-7xl flex flex-col">
         
         <div className="flex justify-between items-center mb-4 md:mb-5">
-          <p className="text-[20px] md:text-[24px] font-bold text-[#1A1A1A] tracking-tight">
+          <p className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
             Shop by Brand
           </p>
-          <Link 
-            href="/brands" 
-            className="block text-[#1E1E1E] hover:text-[#FF6B00] text-[15px] font-bold transition-colors"
+          <Link
+            href="/brands"
+            className="text-foreground hover:text-primary text-sm font-bold transition-colors"
           >
             View All
           </Link>
         </div>
 
-        {/* Menambahkan properti ref={carouselRef} ke container ini */}
-        <div 
+        <div
           ref={carouselRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-3 md:gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-3 md:gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none"
         >
           {brands.map((brand, i) => (
             <BrandCard key={brand.id} brand={brand} index={i} />
