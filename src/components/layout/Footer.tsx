@@ -27,19 +27,19 @@ const CONTACT_LINKS = [
   {
     icon: Instagram,
     label: "Instagram",
-    href: "https://instagram.com/thundersports",
+    href: "https://instagram.com/thundersports.id",
     display: "Instagram",
   },
   {
     icon: TikTokIcon,
     label: "TikTok",
-    href: "https://www.tiktok.com/@thundersports",
+    href: "https://www.tiktok.com/@thundersports.id",
     display: "TikTok",
   },
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:hello@thundersports.com",
+    href: "mailto:hello@thundersports.id",
     display: "Email",
   },
 ];
