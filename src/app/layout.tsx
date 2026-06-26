@@ -66,7 +66,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={archivo.variable}
     >
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className={`min-h-screen bg-background text-foreground antialiased ${archivo.className}`}>
 
         {/* ── Google Tag Manager (noscript fallback) ── */}
         <noscript>

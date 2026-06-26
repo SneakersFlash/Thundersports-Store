@@ -78,10 +78,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    font-family: var(--font-archivo), sans-serif;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: var(--font-archivo), sans-serif;
     font-size: 14px;
     line-height: 1.5;
     font-weight: 400;
@@ -90,7 +92,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display uppercase tracking-wide;
+    @apply uppercase tracking-wide;
+    font-family: var(--font-archivo), sans-serif;
     line-height: 1.15;
   }
   h1 { @apply text-5xl md:text-7xl font-bold; }
@@ -145,7 +148,7 @@
 
   /* ── Uppercase label ── */
   .label {
-    @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground font-sans;
+    @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground;
   }
 
   /* ── Orange badge / tag ── */
@@ -162,7 +165,7 @@
 
   /* ── Navbar link ── */
   .nav-link {
-    @apply relative font-sans font-medium text-sm tracking-wide text-foreground/75
+    @apply relative font-medium text-sm tracking-wide text-foreground/75
            hover:text-foreground transition-colors duration-200;
   }
   .nav-link::after {
@@ -174,12 +177,12 @@
   .nav-link.active { @apply text-foreground; }
 
   /* ── Prices ── */
-  .price         { @apply font-sans text-base font-bold text-foreground; }
-  .price-original{ @apply font-sans text-xs line-through text-muted-foreground; }
-  .price-sale    { @apply font-sans font-bold text-red-500; }
+  .price         { @apply text-base font-bold text-foreground; }
+  .price-original{ @apply text-xs line-through text-muted-foreground; }
+  .price-sale    { @apply font-bold text-red-500; }
 
   /* ── Section heading with orange line ── */
-  .section-heading { @apply font-display text-3xl md:text-4xl font-bold uppercase tracking-wider; }
+  .section-heading { @apply text-3xl md:text-4xl font-bold uppercase tracking-wider; }
   .section-heading::before {
     content: "";
     @apply block w-12 h-1 bg-primary mb-3;
@@ -189,7 +192,7 @@
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
            bg-primary text-primary-foreground
-           px-6 py-3 font-display uppercase tracking-widest text-sm
+           px-6 py-3 uppercase tracking-widest text-sm
            transition-all duration-200 active:scale-95;
   }
   .btn-primary:hover { background-color: #D44F00; }
@@ -198,7 +201,7 @@
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2
            border border-border hover:border-primary hover:text-primary
-           px-6 py-3 font-display uppercase tracking-widest text-sm
+           px-6 py-3 uppercase tracking-widest text-sm
            transition-all duration-200;
   }
 
@@ -216,7 +219,7 @@
   /* ── Announcement bar ── */
   .announcement-bar {
     @apply bg-primary text-primary-foreground text-center py-2
-           text-[11px] font-display uppercase tracking-[0.15em] font-medium;
+           text-[11px] uppercase tracking-[0.15em] font-medium;
   }
 
   /* ── Light mode announcement bar ── */
@@ -226,18 +229,18 @@
 
   /* ── Blog / article rich content ── */
   .article-content {
-    @apply font-body text-[15px] leading-relaxed text-foreground/80;
+    @apply text-[15px] leading-relaxed text-foreground/80;
   }
   .article-content h1 {
-    @apply font-display text-3xl md:text-4xl font-bold uppercase tracking-wide
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-wide
            text-foreground mt-10 mb-4;
   }
   .article-content h2 {
-    @apply font-display text-2xl md:text-3xl font-bold uppercase tracking-wide
+    @apply text-2xl md:text-3xl font-bold uppercase tracking-wide
            text-foreground mt-10 mb-4;
   }
   .article-content h3 {
-    @apply font-display text-lg md:text-xl font-semibold uppercase tracking-wide
+    @apply text-lg md:text-xl font-semibold uppercase tracking-wide
            text-foreground mt-8 mb-3;
   }
   .article-content p { @apply mb-5; }
@@ -319,6 +322,13 @@
   }
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  /* ── Archivo everywhere: override any stale Tailwind font-family utilities ── */
+  .font-sans,
+  .font-display,
+  .font-body {
+    font-family: var(--font-archivo), sans-serif;
   }
 }
 
