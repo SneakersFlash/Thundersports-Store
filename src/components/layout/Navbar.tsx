@@ -320,7 +320,7 @@ function CartBadge({ count }: { count: number }) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center bg-[#FF6B00] text-white text-[9px] font-bold rounded-full border-2 border-white"
+          className="absolute -top-1 -right-1 h-4 w-4 flex items-center justify-center bg-primary text-primary-foreground text-[9px] font-bold rounded-full border-2 border-card"
         >
           {count > 9 ? "9+" : count}
         </motion.span>
@@ -441,8 +441,8 @@ function NavbarInner() {
         )}
       >
         {/* Announcement bar */}
-        <div className="text-[9px] font-bold bg-primary text-white px-1.5 py-px uppercase">
-          FREE SHIPPING ON ORDERS RP 50.000 NEW DROPS EVERY FRIDAY
+        <div className="text-xs font-medium bg-primary text-white px-4 py-2 text-center uppercase tracking-wider">
+          Free Shipping on Orders Rp 50.000 · New Drops Every Friday
         </div>
 
         {/* Main nav row */}
@@ -530,12 +530,9 @@ function NavbarInner() {
                 <Search size={19} />
               </button>
 
-              {/* Theme toggle */}
-              {/* <ThemeToggle /> */}
-
               <div className="flex items-center gap-4">
-                <button 
-                  onClick={() => setIsWishlistOpen(true)} // <-- Tambahkan ini
+                <button
+                  onClick={() => setIsWishlistOpen(true)}
                   className="p-2 hover:bg-muted rounded-full transition-colors"
                   aria-label="Wishlist"
                 >
@@ -594,7 +591,7 @@ function NavbarInner() {
         </AnimatePresence>
       </header>
 
-      {/* Spacer: announcement (32px) + nav (64px) = 96px */}
+      {/* Spacer: announcement bar (32px) + nav row (64px) = 96px */}
       <div className="h-[96px]" aria-hidden />
 
       {/* Backdrop overlay */}
