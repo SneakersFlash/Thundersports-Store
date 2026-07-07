@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { toast } from "sonner";
 import { ProgressHeader } from "@/components/first-5k-club/ProgressHeader";
 import { ConfirmationScreen } from "@/components/first-5k-club/ConfirmationScreen";
+import { IntroScreen } from "@/components/first-5k-club/IntroScreen";
 import {
   FieldShell,
   TextField,
@@ -32,6 +33,7 @@ import {
 } from "@/lib/validation/first5k-club.schema";
 
 export function First5kClubClient() {
+  const [started, setStarted] = useState(false);
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -88,6 +90,17 @@ export function First5kClubClient() {
 
   if (submitted) {
     return <ConfirmationScreen />;
+  }
+
+  if (!started) {
+    return (
+      <IntroScreen
+        onStart={() => {
+          setStarted(true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      />
+    );
   }
 
   const values = watch();
