@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
@@ -297,6 +298,16 @@ function Step3EventInfo({
         hint="Pastikan memilih ukuran dengan benar — tidak dapat diubah atau ditukar setelah pendaftaran."
         error={errors.ukuranJersey?.message}
       >
+        <div className="relative mb-1 w-full overflow-hidden rounded-xl border border-neutral-200">
+          <Image
+            src="/images/Jersey Size Chart.jpg.jpeg"
+            alt="Referensi ukuran jersey FIRST 5K CLUB"
+            width={3840}
+            height={6413}
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 100vw, 512px"
+          />
+        </div>
         <PillSingleSelect
           options={JERSEY_SIZE_OPTIONS}
           value={values.ukuranJersey}
