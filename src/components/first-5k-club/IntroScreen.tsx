@@ -15,8 +15,8 @@ export function IntroScreen({ onStart }: { onStart: () => void }) {
 
         <div className="mt-4 flex flex-col gap-4 text-sm leading-relaxed text-neutral-700">
           <p>
-            FIRST 5K CLUB adalah community running activation yang mengusung konsep &ldquo;RUN YOUR PACE, FIND YOUR
-            PEOPLE&rdquo;, di mana kamu bisa berlari dengan pace yang paling nyaman sekaligus bertemu dan terhubung
+            FIRST 5K CLUB adalah community running activation yang mengusung konsep <strong>&ldquo; RUN YOUR PACE, FIND YOUR
+            PEOPLE&rdquo;</strong>, di mana kamu bisa berlari dengan pace yang paling nyaman sekaligus bertemu dan terhubung
             dengan banyak orang dalam suasana yang fun, supportive, dan community-driven.
           </p>
           <p>
@@ -66,7 +66,7 @@ export function IntroScreen({ onStart }: { onStart: () => void }) {
           <p>Mohon mengisi seluruh informasi dengan lengkap dan benar.</p>
           <p>
             Setelah menyelesaikan formulir, kamu akan mendapatkan link untuk bergabung ke dalam{" "}
-            <strong>WhatsApp Group</strong> resmi FIRST 5K CLUB. Pastikan kamu langsung bergabung karena seluruh
+            <strong>WhatsApp Group resmi FIRST 5K CLUB</strong>. Pastikan kamu langsung bergabung karena seluruh
             informasi dan update mengenai acara akan disampaikan melalui grup tersebut.
           </p>
         </div>
