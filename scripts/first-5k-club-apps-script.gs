@@ -38,29 +38,35 @@ function getTargetSheet_() {
   throw new Error("No sheet tab found with gid " + SHEET_GID);
 }
 
+// Exact column order of the live "PESERTA FIRST 5K CLUB" sheet — confirmed from
+// its real header row. NAMA PANGGILAN and JENIS KELAMIN are collected manually
+// by the organizer (not asked in the web form), so they're left blank here.
 var HEADERS = [
+  "Nomor",
   "Timestamp",
   "Nama",
+  "NAMA PANGGILAN",
   "Tanggal Lahir",
-  "WhatsApp",
+  "JENIS KELAMIN",
+  "Whatsapp",
   "Email",
   "Domisili",
   "Komunitas",
   "Instagram Username",
-  "Seberapa Sering Berlari",
-  "Pernah Selesaikan 5K",
-  "Alasan Utama Ikut",
-  "Hambatan Memulai Lari",
-  "Target",
+  "Seberapa sering kamu berlari?",
+  "Apakah kamu pernah menyelesaikan lari sejauh 5K?",
+  "Apa alasan utama kamu ingin mengikuti FIRST 5K CLUB?",
+  "Apa yang biasanya membuat kamu ragu atau kesulitan untuk mulai berlari?",
+  "Apa target kamu dalam mengikuti FIRST 5K CLUB?",
   "Ukuran Jersey",
-  "Bersedia Ikut Acara Penuh",
-  "Bersedia Upload IG Story",
+  "Apakah kamu bersedia mengikuti seluruh rangkaian acara dari awal sampai selesai?",
+  "Apakah kamu bersedia mengunggah Instagram Story selama atau setelah kegiatan dan menandai akun yang telah ditentukan?",
   "Nama Kontak Darurat",
   "Nomor Kontak Darurat",
-  "Hubungan Kontak Darurat",
-  "Kondisi Kesehatan",
+  "Hubungan dengan Kontak Darurat",
+  "Apakah terdapat kondisi kesehatan, riwayat cedera, alergi, atau informasi penting yang perlu diketahui oleh penyelenggara?",
   "Pernyataan Peserta",
-  "Persetujuan Data",
+  "Persetujuan Penggunaan Data",
 ];
 
 function doPost(e) {
@@ -72,10 +78,23 @@ function doPost(e) {
       sheet.appendRow(HEADERS);
     }
 
+    // "Nomor" continues the existing sequential count (row 2 = Nomor 1, so
+    // Nomor for the next row equals the sheet's current last-row index).
+    var nextNomor = sheet.getLastRow();
+
+    var timestamp = Utilities.formatDate(
+      new Date(),
+      SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone(),
+      "dd/MM/yyyy HH:mm:ss"
+    );
+
     sheet.appendRow([
-      data.timestamp || new Date().toISOString(),
+      nextNomor,
+      timestamp,
       data.nama || "",
+      "", // NAMA PANGGILAN — not collected by the web form
       data.tanggalLahir || "",
+      "", // JENIS KELAMIN — not collected by the web form
       data.whatsapp || "",
       data.email || "",
       data.domisili || "",
