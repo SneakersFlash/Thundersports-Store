@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { ProgressHeader } from "@/components/first-5k-club/ProgressHeader";
 import { ConfirmationScreen } from "@/components/first-5k-club/ConfirmationScreen";
 import { IntroScreen } from "@/components/first-5k-club/IntroScreen";
+import { ClosedScreen } from "@/components/first-5k-club/ClosedScreen";
 import {
   FieldShell,
   TextField,
@@ -32,6 +33,9 @@ import {
   PARTICIPANT_STATEMENTS,
   type First5kClubFormValues,
 } from "@/lib/validation/first5k-club.schema";
+
+// Flip to false once the event quota is full to close registration.
+const REGISTRATION_OPEN = true;
 
 export function First5kClubClient() {
   const [started, setStarted] = useState(false);
@@ -88,6 +92,10 @@ export function First5kClubClient() {
       setIsSubmitting(false);
     }
   };
+
+  if (!REGISTRATION_OPEN) {
+    return <ClosedScreen />;
+  }
 
   if (submitted) {
     return <ConfirmationScreen />;
