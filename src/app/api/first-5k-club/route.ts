@@ -74,6 +74,14 @@ export async function POST(request: NextRequest) {
     });
 
     const scriptData = await scriptRes.json().catch(() => null);
+
+    if (scriptData?.status === "closed") {
+      return NextResponse.json(
+        { message: scriptData.message ?? "Kuota pendaftaran sudah penuh." },
+        { status: 409 }
+      );
+    }
+
     if (!scriptRes.ok || scriptData?.status !== "ok") {
       throw new Error(scriptData?.message ?? "Google Sheet menolak data.");
     }

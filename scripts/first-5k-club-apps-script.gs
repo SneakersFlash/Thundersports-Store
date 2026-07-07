@@ -19,6 +19,10 @@
  * 6. Re-run "Deploy → Manage deployments → Edit → New version" any time
  *    this script changes — Apps Script does not hot-reload deployed URLs.
  *
+ * Quota: QUOTA_LIMIT below caps registrants at 100. doPost() refuses to
+ * append once that many data rows already exist, and doGet() reports the
+ * current count so the website can show a "registration closed" screen.
+ *
  * Safety: this script only ever calls appendRow() — it never clears,
  * deletes, or overwrites existing rows, so current registrants already in
  * the sheet are never touched. It only writes the HEADERS row if the tab is
@@ -29,6 +33,7 @@
  */
 
 var SHEET_GID = 992928911; // tab id from the Sheet URL you shared
+var QUOTA_LIMIT = 100; // max registrants — change here if the quota changes
 
 function getTargetSheet_() {
   var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets();
@@ -36,6 +41,26 @@ function getTargetSheet_() {
     if (sheets[i].getSheetId() === SHEET_GID) return sheets[i];
   }
   throw new Error("No sheet tab found with gid " + SHEET_GID);
+}
+
+// Data rows = every row below the header (row 1). If the tab is still
+// completely empty, there's no header yet either, so count is 0.
+function getRegistrantCount_(sheet) {
+  var lastRow = sheet.getLastRow();
+  return lastRow === 0 ? 0 : lastRow - 1;
+}
+
+function doGet() {
+  var sheet = getTargetSheet_();
+  var count = getRegistrantCount_(sheet);
+  return ContentService.createTextOutput(
+    JSON.stringify({
+      status: "ok",
+      count: count,
+      quotaLimit: QUOTA_LIMIT,
+      full: count >= QUOTA_LIMIT,
+    })
+  ).setMimeType(ContentService.MimeType.JSON);
 }
 
 // Exact column order of the live "PESERTA FIRST 5K CLUB" sheet — confirmed from
@@ -73,6 +98,12 @@ function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
     var sheet = getTargetSheet_();
+
+    if (getRegistrantCount_(sheet) >= QUOTA_LIMIT) {
+      return ContentService.createTextOutput(
+        JSON.stringify({ status: "closed", message: "Kuota pendaftaran sudah penuh." })
+      ).setMimeType(ContentService.MimeType.JSON);
+    }
 
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(HEADERS);

@@ -34,10 +34,7 @@ import {
   type First5kClubFormValues,
 } from "@/lib/validation/first5k-club.schema";
 
-// Flip to false once the event quota is full to close registration.
-const REGISTRATION_OPEN = true;
-
-export function First5kClubClient() {
+export function First5kClubClient({ registrationOpen }: { registrationOpen: boolean }) {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -93,7 +90,7 @@ export function First5kClubClient() {
     }
   };
 
-  if (!REGISTRATION_OPEN) {
+  if (!registrationOpen) {
     return <ClosedScreen />;
   }
 
