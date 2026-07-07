@@ -5,15 +5,15 @@ import Image from "next/image";
 const STEP_LABELS = ["Data Diri", "Running Journey", "Event Info", "Emergency", "Persetujuan", "Review"];
 
 const COLLAB_LOGOS = [
+  { src: "/images/CREAM LOGO.png", alt: "Berkawan Hub", width: 100 },
   { src: "/images/LOGO THUNDER SPORT FULL WHITE.png", alt: "Thunder Sports", width: 110 },
   { src: "/images/logo uss run 2026-03.png", alt: "USS Running", width: 70 },
-  { src: "/images/CREAM LOGO.png", alt: "Berkawan Hub", width: 100 },
 ];
 
 const SUPPORTER_LOGOS = [
   { src: "/images/Logo Full Putih.png", alt: "Sneakers Flash", width: 90 },
   { src: "/images/NUSA LOGO BODAS.png", alt: "Nusa Activewear", width: 60 },
-  { src: "/images/Sunpride_Logo_FA_CMYK_Reverse_white-01__3_-removebg-preview.png", alt: "Sunpride", width: 70 },
+  { src: "/images/Sunpride_Logo_FA_CMYK_Reverse_white-01__3_-removebg-preview.png", alt: "Sunpride", width: 90 },
   { src: "/images/Oatside_Wordmark_White.png", alt: "Oatside", width: 70 },
 ];
 
