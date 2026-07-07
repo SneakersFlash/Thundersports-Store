@@ -25,10 +25,11 @@ export function ClientLayoutWrapper({ children }: { children: React.ReactNode })
   const isCheckout = pathname.startsWith("/checkout");
   const isBrands = pathname.startsWith("/brands");
   const isOrder = pathname.startsWith("/orders");
+  const isFirst5kClub = pathname.startsWith("/first-5k-club");
 
-  const showDesktopNavbar = !isCheckout && !isOrder;
-  const showFooter = !isCheckout && !isOrder;
-  const showBottomNav = !isProductDetail && !isCheckout;
+  const showDesktopNavbar = !isCheckout && !isOrder && !isFirst5kClub;
+  const showFooter = !isCheckout && !isOrder && !isFirst5kClub;
+  const showBottomNav = !isProductDetail && !isCheckout && !isFirst5kClub;
 
   return (
     <>
@@ -39,7 +40,7 @@ export function ClientLayoutWrapper({ children }: { children: React.ReactNode })
         </div>
       )}
 
-      {!isCheckout && <TopSearchBar />}
+      {!isCheckout && !isFirst5kClub && <TopSearchBar />}
 
       <main className={`min-h-screen ${showBottomNav ? " lg:pb-0" : ""}`}>
         {children}
