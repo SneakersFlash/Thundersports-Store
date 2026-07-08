@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"page: %{http_code}\\\\n\" http://localhost:3058/first-5k-club)",
+      "Bash(curl -s -o /dev/null -w \"chart: %{http_code}\\\\n\" \"http://localhost:3058/images/Jersey%20Size%20Chart.jpg.jpeg\")",
+      "Bash(pkill -f \"next dev -p 3058\")",
+      "Bash(sed -i 's/const REGISTRATION_OPEN = true;/const REGISTRATION_OPEN = false;/' \"src/app/\\(main\\)/first-5k-club/First5kClubClient.tsx\")",
+      "Bash(curl -s http://localhost:3059/first-5k-club -o /tmp/claude-1000/-home-flyingjohn-Projects-thundersports2-0-thundersports-store/80fb78e4-2f6b-46c7-ad53-6c33dbcef8a6/scratchpad/closed.html -w \"page: %{http_code}\\\\n\")",
+      "Bash(pkill -f \"next dev -p 3059\")",
+      "Bash(sed -i 's/const REGISTRATION_OPEN = false;/const REGISTRATION_OPEN = true;/' \"src/app/\\(main\\)/first-5k-club/First5kClubClient.tsx\")",
+      "Bash(curl -s http://localhost:3060/first-5k-club -o /tmp/claude-1000/-home-flyingjohn-Projects-thundersports2-0-thundersports-store/80fb78e4-2f6b-46c7-ad53-6c33dbcef8a6/scratchpad/quota.html -w \"page: %{http_code}\\\\n\")",
+      "Bash(pkill -f \"next dev -p 3060\")"
+    ]
+  }
+}

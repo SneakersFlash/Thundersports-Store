@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 
 export default async function First5kClubPage() {
   const registrationOpen = await getRegistrationOpen();
-  return <First5kClubClient registrationOpen={registrationOpen} />;
+  return <First5kClubClient registrationOpen={false} />;
 }
