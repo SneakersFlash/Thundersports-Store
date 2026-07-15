@@ -153,6 +153,58 @@ export function PillMultiSelect({
   );
 }
 
+// ─── Linear scale 1–5 (replaces a Google Forms "Skala linear") ──────────────
+
+export function LinearScale({
+  value,
+  onChange,
+  minLabel,
+  maxLabel,
+  min = 1,
+  max = 5,
+}: {
+  value?: number;
+  onChange: (value: number) => void;
+  minLabel?: string;
+  maxLabel?: string;
+  min?: number;
+  max?: number;
+}) {
+  const points = Array.from({ length: max - min + 1 }, (_, i) => min + i);
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex items-stretch gap-2">
+        {points.map((n) => {
+          const active = value === n;
+          return (
+            <button
+              key={n}
+              type="button"
+              onClick={() => onChange(n)}
+              aria-pressed={active}
+              aria-label={`${n}`}
+              className={[
+                "flex flex-1 items-center justify-center rounded-xl border py-3 text-sm font-bold transition-all",
+                active
+                  ? "border-brand-orange bg-brand-orange text-white shadow-md shadow-brand-orange/25"
+                  : "border-neutral-200 bg-white text-neutral-700 hover:border-brand-orange/50",
+              ].join(" ")}
+            >
+              {n}
+            </button>
+          );
+        })}
+      </div>
+      {(minLabel || maxLabel) && (
+        <div className="flex justify-between text-xs text-neutral-500">
+          <span>{minLabel}</span>
+          <span>{maxLabel}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Consent checkbox row (single statement, used in Agreement step) ────────
 
 export function ConsentCheckbox({
