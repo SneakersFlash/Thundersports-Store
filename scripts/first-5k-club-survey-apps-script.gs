@@ -32,7 +32,7 @@
 var SPREADSHEET_ID = "1Vlg5stemyrbAlsPT2dQiB1dTNFZusYvJ4Ay4vA1v7cs";
 // Nama tab tujuan untuk data survey. Dibuat OTOMATIS kalau belum ada, dan header
 // ditulis otomatis saat baris pertama masuk — jadi tidak perlu bikin manual.
-var SHEET_NAME = "Post Event Survey";
+var SHEET_NAME = "DATA SURVEY";
 
 function getTargetSheet_() {
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
