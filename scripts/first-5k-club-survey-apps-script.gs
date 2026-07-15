@@ -1,37 +1,44 @@
 /**
  * FIRST 5K CLUB — Post Event Survey webhook.
  *
+ * Model: STANDALONE script (bukan container-bound). Data ditulis ke tab
+ * terpisah di spreadsheet yang sama dengan form registrasi, via openById.
+ *
  * Setup:
- * 1. Buat / buka spreadsheet Google Sheet TERPISAH khusus survey (jangan pakai
- *    sheet registrasi). Lalu Extensions → Apps Script. Script harus dibuat dari
- *    dalam spreadsheet ini (container-bound) supaya selalu menulis ke sini.
+ * 1. Buka https://script.google.com → New project (JANGAN dari Extensions →
+ *    Apps Script di dalam sheet, karena spreadsheet registrasi sudah punya
+ *    script bound sendiri).
  * 2. Ganti isi Code.gs dengan file ini, lalu Save.
- * 3. (Opsional) set SHEET_GID di bawah ke gid tab tujuan (lihat URL sheet:
- *    …#gid=XXXX). Kalau dibiarkan 0, script memakai tab aktif pertama.
+ * 3. Pastikan SPREADSHEET_ID di bawah = ID spreadsheet tujuan (default: sheet
+ *    registrasi). SHEET_NAME = nama tab survey; tab & header dibuat OTOMATIS.
  * 4. Deploy → New deployment → type "Web app".
- *      - Execute as: Me
+ *      - Execute as: Me   (akun yang punya akses edit ke spreadsheet itu)
  *      - Who has access: Anyone
+ *    Saat pertama deploy, Google minta authorize akses ke Spreadsheets — terima.
  * 5. Copy URL deployment, set sebagai GOOGLE_SURVEY_SCRIPT_URL di .env.local
  *    Next.js DAN di env hosting (lihat src/app/api/first-5k-club-survey/route.ts).
  * 6. Setiap script ini diubah, jalankan Deploy → Manage deployments → Edit →
  *    New version (Apps Script tidak hot-reload URL yang sudah dideploy).
  *
- * Safety: script hanya memanggil appendRow() — tidak pernah menghapus/menimpa
- * baris yang sudah ada. Baris HEADERS hanya ditulis kalau tab masih kosong.
+ * Safety: script hanya insertSheet (kalau tab belum ada) + appendRow — tidak
+ * pernah menghapus/menimpa baris yang sudah ada. Tab registrasi tidak disentuh
+ * karena kita menulis ke tab bernama SHEET_NAME. Header hanya ditulis kalau tab
+ * survey masih kosong.
  */
 
-var SHEET_GID = 0; // 0 = pakai tab pertama; atau isi gid tab tujuan dari URL sheet
+// ID spreadsheet tujuan — ambil dari URL: docs.google.com/spreadsheets/d/<ID>/edit
+// Default: spreadsheet yang sama dengan form registrasi. GANTI kalau survey mau
+// ditaruh di spreadsheet lain.
+var SPREADSHEET_ID = "1Vlg5stemyrbAlsPT2dQiB1dTNFZusYvJ4Ay4vA1v7cs";
+// Nama tab tujuan untuk data survey. Dibuat OTOMATIS kalau belum ada, dan header
+// ditulis otomatis saat baris pertama masuk — jadi tidak perlu bikin manual.
+var SHEET_NAME = "Post Event Survey";
 
 function getTargetSheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  if (SHEET_GID) {
-    var sheets = ss.getSheets();
-    for (var i = 0; i < sheets.length; i++) {
-      if (sheets[i].getSheetId() === SHEET_GID) return sheets[i];
-    }
-    throw new Error("No sheet tab found with gid " + SHEET_GID);
-  }
-  return ss.getSheets()[0];
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  var sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
+  return sheet;
 }
 
 function getResponseCount_(sheet) {
@@ -91,7 +98,7 @@ function doPost(e) {
 
     var timestamp = Utilities.formatDate(
       new Date(),
-      SpreadsheetApp.getActiveSpreadsheet().getSpreadsheetTimeZone(),
+      Session.getScriptTimeZone(),
       "dd/MM/yyyy HH:mm:ss"
     );
 
