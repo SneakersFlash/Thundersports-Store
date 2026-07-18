@@ -247,7 +247,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ type: "spring", stiffness: 420, damping: 32 }}
-            className="fixed bottom-[88px] right-5 z-50 flex w-[360px] max-w-[calc(100vw-20px)] flex-col rounded-2xl bg-white shadow-[0_8px_40px_-8px_rgba(0,0,0,0.18)] overflow-hidden"
+            className="fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-5 z-50 flex w-[360px] max-w-[calc(100vw-20px)] max-h-[calc(100dvh-11rem)] flex-col rounded-2xl bg-white shadow-[0_8px_40px_-8px_rgba(0,0,0,0.18)] overflow-hidden lg:bottom-[88px] lg:max-h-none"
             style={{ height: "520px" }}
           >
             {/* Header */}
@@ -391,7 +391,7 @@ export function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-zinc-950 text-white shadow-[0_4px_24px_-4px_rgba(0,0,0,0.4)] hover:bg-zinc-800 transition-colors"
+        className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-zinc-950 text-white shadow-[0_4px_24px_-4px_rgba(0,0,0,0.4)] hover:bg-zinc-800 transition-colors lg:bottom-5"
         aria-label="Buka chat"
       >
         <AnimatePresence mode="wait">
