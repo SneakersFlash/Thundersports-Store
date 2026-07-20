@@ -96,6 +96,23 @@ export default function RootLayout({
           }}
         />
 
+        {/* ── Google tag (gtag.js) — GA4 ── */}
+        <Script
+          id="ga4-src"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-DECB0QJT7L"
+        />
+        <Script
+          id="ga4-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-DECB0QJT7L');`,
+          }}
+        />
+
       </body>
     </html>
   );
