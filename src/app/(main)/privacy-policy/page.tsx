@@ -317,10 +317,10 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700 text-sm">
                 {t.summaryEmail}{" "}
                 <a
-                  href="mailto:hello@thundersports.com"
+                  href="mailto:hello@thundersports.id"
                   className="text-black font-semibold underline underline-offset-2"
                 >
-                  hello@thundersports.com
+                  hello@thundersports.id
                 </a>
               </p>
             </div>

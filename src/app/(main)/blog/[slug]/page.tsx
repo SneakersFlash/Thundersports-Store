@@ -35,7 +35,7 @@ export async function generateMetadata({
   const description = post.metaDescription || post.excerpt || "";
   const rawImage = post.coverImageUrl || post.thumbnailUrl;
   const ogImage = rawImage ? buildImageUrl(rawImage) : "";
-  const url = `https://thundersports.com/blog/${post.slug}`;
+  const url = `https://thundersports.id/blog/${post.slug}`;
 
   return {
     title: `${title} — ThunderSports`,

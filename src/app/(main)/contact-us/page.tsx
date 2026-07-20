@@ -92,14 +92,14 @@ export default function ContactPage() {
   const errorClass = "mt-1 text-xs text-red-500";
 
   const contacts = [
-    { label: { id: "Email", en: "Email" }, value: "hello@thundersports.com", icon: "✉", href: "mailto:hello@thundersports.com" },
+    { label: { id: "Email", en: "Email" }, value: "hello@thundersports.id", icon: "✉", href: "mailto:hello@thundersports.id" },
     {
       label: { id: "WhatsApp", en: "WhatsApp" },
       value: "+62 813-1391-1391",
       icon: "📱",
       href: `https://wa.me/${WA_NUMBER}`,
     },
-    { label: { id: "Instagram", en: "Instagram" }, value: "@thundersports", icon: "📸", href: "https://instagram.com/thundersports" },
+    { label: { id: "Instagram", en: "Instagram" }, value: "@thundersports.id", icon: "📸", href: "https://instagram.com/thundersports.id" },
     {
       label: { id: "Jam Operasional", en: "Operating Hours" },
       value: t.operatingHours,

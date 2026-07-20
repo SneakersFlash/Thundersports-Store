@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   title: "Journal — ThunderSports",
   description:
     "Berita rilis, kolaborasi, interview, dan cerita terbaru dari dunia olahraga bersama ThunderSports.",
-  alternates: { canonical: "https://thundersports.com/blog" },
+  alternates: { canonical: "https://thundersports.id/blog" },
   openGraph: {
     title: "Journal — ThunderSports",
     description:
       "Berita rilis, kolaborasi, interview, dan cerita terbaru dari dunia olahraga.",
-    url: "https://thundersports.com/blog",
+    url: "https://thundersports.id/blog",
     type: "website",
   },
 };

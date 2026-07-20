@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
     const title       = eventData.metaTitle       || eventData.title;
     const description = eventData.metaDescription || "";
     const ogImage     = eventData.ogImageUrl       || eventData.bannerDesktopUrl || "";
-    const url         = `https://thundersports.com/events/${eventData.slug}`;
+    const url         = `https://thundersports.id/events/${eventData.slug}`;
 
     return {
         title,

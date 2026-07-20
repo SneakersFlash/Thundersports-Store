@@ -217,7 +217,7 @@ const content: Record<
         content: [
           {
             type: "text",
-            text: "Website Thunder Sports (thundersports.com) dirancang dan dikelola sepenuhnya oleh tim kami untuk memberikan pengalaman belanja perlengkapan olahraga terbaik di Indonesia.",
+            text: "Website Thunder Sports (thundersports.id) dirancang dan dikelola sepenuhnya oleh tim kami untuk memberikan pengalaman belanja perlengkapan olahraga terbaik di Indonesia.",
           },
           {
             type: "subheading",
@@ -464,7 +464,7 @@ const content: Record<
         content: [
           {
             type: "text",
-            text: "The Thunder Sports website (thundersports.com) is fully designed and managed by our team to provide the best sports shopping experience in Indonesia.",
+            text: "The Thunder Sports website (thundersports.id) is fully designed and managed by our team to provide the best sports shopping experience in Indonesia.",
           },
           {
             type: "subheading",
@@ -653,10 +653,10 @@ export default function TermsAndConditionsPage() {
               <p className="text-gray-700 text-sm">
                 {t.summaryEmail}{" "}
                 <a
-                  href="mailto:hello@thundersports.com"
+                  href="mailto:hello@thundersports.id"
                   className="text-black font-semibold underline underline-offset-2"
                 >
-                  hello@thundersports.com
+                  hello@thundersports.id
                 </a>
               </p>
             </div>

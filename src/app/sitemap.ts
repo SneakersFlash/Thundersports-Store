@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import CampaignsService from "@/lib/api/campaigns.service";
 import { productsService } from "@/lib/api/products.service";
 
-const BASE_URL = "https://thundersports.com";
+const BASE_URL = "https://thundersports.id";
 
 export const revalidate = 3600;
 
